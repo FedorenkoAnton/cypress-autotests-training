@@ -24,8 +24,8 @@ describe('Checkout goods on \'saucedemo\'', () => {
       cy.visit('/')
       baseActions.logInToSauceDemo(username)
 
-      inventoryPage.getAddToCartSauceLabsBikeLite().click
-      inventoryPage.getCartButton().click()
+      inventoryPage.getAddToCartSauceLabsBikeLite().click()
+      inventoryPage.getHeader().getCartLink().click()
       
       cartPage.getCheckoutButton().click()
 
@@ -36,7 +36,7 @@ describe('Checkout goods on \'saucedemo\'', () => {
 
       checkoutStepTwoPage.getFinishButton().click()
 
-      checkoutCompletePage.getCompleteHeader() .should('have.text', COMPLETE_HEADER)
+      checkoutCompletePage.getCompleteHeader().should('have.text', COMPLETE_HEADER)
     })
   })
 })

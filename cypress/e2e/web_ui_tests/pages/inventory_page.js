@@ -1,3 +1,6 @@
+import CommonElements from "./common_page_elements/common_elements"
+
+const commonElements = new CommonElements()
 
 class InventoryPage {
 
@@ -5,8 +8,8 @@ class InventoryPage {
         return cy.xpath('//button[@name=\'add-to-cart-sauce-labs-bike-light\']')
     }
 
-    getCartButton() {
-        return cy.xpath('//div[@id=\'shopping_cart_container\']/a[@class=\'shopping_cart_link\']')
+    getHeader() {
+        return commonElements.getHeader()
     }
 
     getSortingOptionsDropdown() {
@@ -19,6 +22,15 @@ class InventoryPage {
 
     getProductPrices() {
         return cy.xpath('//div[@class=\'inventory_item_price\']')
+    }
+
+    getProductsToAddToCart() {
+        const productsToAddToCart = []
+        productsToAddToCart.push(cy.xpath('//button[@id=\'add-to-cart-sauce-labs-backpack\']'))
+        productsToAddToCart.push(cy.xpath('//button[@id=\'add-to-cart-sauce-labs-fleece-jacket\']'))
+        productsToAddToCart.push(cy.xpath('//button[@id=\'add-to-cart-sauce-labs-onesie\']'))
+        
+        return productsToAddToCart
     }
 }
 
